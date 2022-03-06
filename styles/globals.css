@@ -10,6 +10,7 @@ body {
 }
 
 body {
+  line-height: 1.85;
   @apply text-xl font-semibold;
 }
 
@@ -23,13 +24,14 @@ a {
 }
 
 .h1 {
-  @apply text-5xl leading-tight;
+  @apply text-5xl leading-tight font-normal;
 }
 .h2 {
   @apply text-3xl leading-tight;
 }
 .h3 {
-  @apply text-2xl leading-tight;
+  font-size: 1.75rem;
+  @apply leading-tight font-bold;
 }
 .h4 {
   @apply text-xl;
