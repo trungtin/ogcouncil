@@ -11,7 +11,7 @@ body {
 
 body {
   line-height: 1.85;
-  @apply text-xl font-semibold;
+  @apply text-xl bg-blue-05 text-white;
 }
 
 a {
@@ -24,17 +24,18 @@ a {
 }
 
 .h1 {
-  @apply text-5xl leading-tight font-normal;
+  @apply font-display text-5xl leading-tight font-normal;
 }
 .h2 {
-  @apply text-3xl leading-tight;
+  @apply font-display text-5xl leading-normal;
 }
 .h3 {
   font-size: 1.75rem;
   @apply leading-tight font-bold;
 }
 .h4 {
-  @apply text-xl;
+  line-height: 1.67rem;
+  @apply text-2xl font-bold;
 }
 .h5 {
   @apply text-lg;

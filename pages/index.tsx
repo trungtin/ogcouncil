@@ -1,33 +1,27 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import cx from 'classnames'
+
+import { Disclosure, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/outline'
 
 import Banner from '../images/banner.jpg'
 
 import Map from '../images/map.png'
-import About from '../images/about.jpg'
-
-import P1 from '../images/p1.jpg'
-import P2 from '../images/p2.jpg'
-import P3 from '../images/p3.jpg'
-import P4 from '../images/p4.jpg'
-import P5 from '../images/p5.jpg'
-import P6 from '../images/p6.jpg'
+import About from '../images/about.jpeg'
 
 import Clock from '../images/icons/Clock.svg'
 import Pin from '../images/icons/Pin.svg'
 import Micro from '../images/icons/Micro.svg'
 
 const linkClass = ''
-const lightTextClass = 'text-gray-lightText text-base font-light'
+const lightTextClass = 'text-base font-light'
 
 const Home: NextPage = () => {
   const renderPerson = (person: any, index: number) => (
-    <div className="flex-1" key={index}>
-      <div>
-        <Image src={person.i} alt={person.n}></Image>
-      </div>
-      <h3 className="h3 mt-6">{person.n}</h3>
+    <div className={cx('flex-1 bg-blue-04 px-2 py-4', person.c)} key={index}>
+      <h3 className="h3">{person.n}</h3>
       <p className={`${lightTextClass} mt-2`}>{person.r}</p>
     </div>
   )
@@ -38,14 +32,12 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="min-h-screen flex-1 flex flex-col">
-        <article
-          className="w-full relative"
-        >
+        <article className="w-full relative">
           <Image src={Banner} alt="" layout="responsive"></Image>
         </article>
-        <article className="container pt-32">
-          <h1 className="h1 px-24 mb-14">About</h1>
-          <div className="rounded-5xl bg-gray-bg pl-24 grid grid-cols-10 gap-8 mr-24">
+        <article className="container pt-12 lg:pt-32">
+          <h2 className="h2 px-4 lg:px-24 mb-6 lg:mb-14">About</h2>
+          <div className="bg-blue-04 text-blue-02 pl-4 lg:pl-24 grid grid-cols-6 lg:grid-cols-10 gap-8 lg:mr-24">
             <div className="py-12 col-span-6">
               <p className="">
                 Our aim is to host Ethereum Magicians Council, similar as what
@@ -58,20 +50,19 @@ const Home: NextPage = () => {
                 are facing in the Ethereum Ecosystem.
               </p>
             </div>
-            <div className="col-start-7 col-span-4 relative">
-              <div className="absolute w-full -top-20 bottom-6 -right-24">
+            <div className="hidden lg:block col-start-7 col-span-4 relative">
+              <div className="absolute w-full -top-28 bottom-14 -right-24">
                 <Image
                   src={About}
                   alt=""
                   layout="fill"
                   objectFit="contain"
-                  className="rounded-4xl"
                 ></Image>
               </div>
             </div>
           </div>
 
-          <div className={`${lightTextClass} text-gray-03 py-12 px-24`}>
+          <div className={`${lightTextClass} py-12 px-4 lg:px-24`}>
             <p>
               Council is a big gathering of Ethereum enthusiasts with aim to
               discuss and solve issues we are facing in the Ethereum core
@@ -85,73 +76,89 @@ const Home: NextPage = () => {
           </div>
         </article>
 
-        <article className="container mt-48 text-center">
-          <h1 className="h1 text-center">Sessions & Session Leaders</h1>
-          <div className="mt-24">
-            <div className="">
-              <Image src={Micro} alt=""></Image>
+        <article className="py-12 lg:py-20 lg:mt-20 text-center bg-blue-06">
+          <div className="container ">
+            <h2 className="h2 text-center">Leaders</h2>
+            <div className="mt-24">
+              <div className="">
+                <Image src={Micro} alt=""></Image>
+              </div>
+              <h3 className="h3 text-blue-02 mb-4 mt-4">
+                Day 1 - Saturday April 23rd
+              </h3>
+              <p className={lightTextClass}>
+                Saturday will be focused on dApp layer EIPs and topic
+                disccussions. NFT, DeFi related discussions are welcomed, we
+                would like to look into standardisation of DeFi and NFT
+                protocols.
+              </p>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 mt-10">
+                {[
+                  {
+                    n: 'James Hancok',
+                    r: 'Ex AllCoreDevs Coordinator',
+                    c: 'col-span-1',
+                  },
+                  {
+                    n: 'Anett',
+                    r: 'NFT Standards - Author of NFTStandards.wtf documentation, Working Group leader',
+                    c: 'lg:col-span-2',
+                  },
+                  {
+                    n: 'Hadrien Croubois',
+                    r: 'ERC-4626 - Author of ERC-4626 Open Zeppelin implementation',
+                    c: 'lg:col-span-2',
+                  },
+                  {
+                    n: 'Alex Stokes',
+                    r: 'Co- Author of EIP-4444',
+                    c: 'col-span-1',
+                  },
+                ].map(renderPerson)}
+              </div>
             </div>
-            <h3 className="h3 mb-4 mt-10">Day 1 - Saturday April 23rd</h3>
-            <p className="text-gray-subText">
-              Saturday will be focused on dApp layer EIPs and topic
-              disccussions. NFT, DeFi related discussions are welcomed, we would
-              like to look into standardisation of DeFi and NFT protocols.
+            <div className="mt-24">
+              <div className="">
+                <Image src={Micro} alt=""></Image>
+              </div>
+              <h3 className="h3 text-blue-02 mb-4 mt-4">
+                Day 2 - Sunday April 24th
+              </h3>
+              <p className={lightTextClass}>
+                Sunday will be focused on protocol layer EIPs and discussions.
+                This day be can be used for community discussions with Core Devs
+                and protocol researchers
+              </p>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 mt-10">
+                {[
+                  {
+                    n: 'Piper Merriam',
+                    r: 'Portal Network (ex Stateless Client)',
+                    c: 'col-span-1',
+                  },
+                  {
+                    n: 'ETH Staker Team',
+                    r: 'Client UX',
+                    c: 'col-span-1',
+                  },
+                  {
+                    n: 'Marius Van Der Wijden',
+                    r: 'Merge Testing',
+                    c: 'col-span-1',
+                  },
+                ].map(renderPerson)}
+              </div>
+            </div>
+            <p className={`${lightTextClass} mt-12`}>
+              Both days the sessions will start at 10am with Opening Ceremony.
             </p>
-            <div className="grid grid-cols-3 gap-7 mt-10">
-              {[
-                { i: P1, n: 'James Hacock', r: 'Ex AllCoreDevs Coordinator ' },
-                {
-                  i: P2,
-                  n: 'Anett',
-                  r: 'NFT Standards - Author of NFTStandards.wtf documentation, Working Group leader ',
-                },
-                {
-                  i: P3,
-                  n: 'Hadrien',
-                  r: 'ERC-4626 - Author of ERC-4626 Open Zeppelin implementation',
-                },
-              ].map(renderPerson)}
-            </div>
           </div>
-          <div className="mt-24">
-            <div className="">
-              <Image src={Micro} alt=""></Image>
-            </div>
-            <h3 className="h3 mb-4 mt-10">Day 2 - Sunday April 24th</h3>
-            <p className="text-gray-subText">
-              Sunday will be focused on protocol layer EIPs and discussions.
-              This day be can be used for community discussions with Core Devs
-              and protocol researchers
-            </p>
-            <div className="grid grid-cols-3 gap-7 mt-10">
-              {[
-                {
-                  i: P4,
-                  n: 'Piper Merriam',
-                  r: 'Portal Network (ex Stateless Client)',
-                },
-                {
-                  i: P5,
-                  n: 'ETH Staker Team',
-                  r: 'Client UX',
-                },
-                {
-                  i: P6,
-                  n: 'Marius Van Der Wijden',
-                  r: 'Merge Testing',
-                },
-              ].map(renderPerson)}
-            </div>
-          </div>
-          <p className={`${lightTextClass} mt-12`}>
-            Both days the sessions will start at 10am with Opening Ceremony.
-          </p>
         </article>
 
-        <article className="container py-12 mt-48">
-          <h1 className="h1 mb-8">Tickets</h1>
-          <div className="grid grid-cols-8 gap-x-8">
-            <div className="col-span-5">
+        <article className="container py-8 lg:py-20">
+          <h2 className="h2 mb-6 lg:mb-12 text-center">Tickets</h2>
+          <div className="">
+            <div className="">
               <p className="mb-4">
                 We are going to give away tickets for FREE with optional
                 donation. Tickets will be available in 3 waves. The first wave
@@ -185,13 +192,112 @@ const Home: NextPage = () => {
                 </p>
               </div>
             </div>
-            <div className="col-span-3"></div>
+            <div className="">
+              <dl className="mt-6 space-y-4">
+                {[
+                  {
+                    n: 'Wave 1 - Date TBA',
+                    c: (
+                      <>
+                        <p>Tickets available: 250</p>
+                        <p>Ticket type: FEM OG</p>
+                        <p>Ticket distribution: via email</p>
+                        <p>Groups elighble for first wave tickets:</p>
+                        <ul className="list-disc list-inside pl-4">
+                          <li>
+                            Ethereum Magicians OGs - people that are actively
+                            participating in discussions on a forum
+                          </li>
+                          <li>
+                            EIP contributors - people that authored &
+                            co-authored EIP/ERC, EIP editors,
+                          </li>
+                          <li>
+                            Core Devs - people actively contributing to Ethereum
+                            Core protocol database (this should be probably
+                            better defined)
+                          </li>
+                        </ul>
+                        <p>
+                          Please notify us via forum or Discord if you haven’t
+                          received email from us!
+                        </p>
+                      </>
+                    ),
+                  },
+                  {
+                    n: 'Wave 2 - Date TBA',
+                    c: (
+                      <>
+                        <p>Tickets available: 200</p>
+                        <p>Ticket type: Community</p>
+                        <p>Publicly available tickets</p>
+                        <p>
+                          Ticket distribution: Publicly available on our website
+                        </p>
+                      </>
+                    ),
+                  },
+                  {
+                    n: 'Wave 3 - Date TBA',
+                    c: (
+                      <>
+                        <p>Tickets available: 150</p>
+                        <p>Tickcet type: Last Chance</p>
+                        <p>Publicly available tickets</p>
+                        <p>
+                          Ticket distribution: Publicly available on our website
+                        </p>
+                      </>
+                    ),
+                  },
+                ].map((faq) => (
+                  <Disclosure as="div" key={faq.n} className="">
+                    {({ open }) => (
+                      <>
+                        <dt className="pt-4 pb-3 px-6 bg-blue-04 text-blue-02">
+                          <Disclosure.Button className="text-left w-full flex justify-between items-start">
+                            <span className="font-medium">{faq.n}</span>
+                            <span className="ml-6 h-7 flex items-center">
+                              <ChevronDownIcon
+                                className={cx(
+                                  open ? '-rotate-180' : 'rotate-0',
+                                  'h-6 w-6 transform'
+                                )}
+                                aria-hidden="true"
+                              />
+                            </span>
+                          </Disclosure.Button>
+                        </dt>
+                        <Transition
+                          show={open}
+                          enter="transition duration-100 ease-out"
+                          enterFrom="transform -translate-y-4 opacity-0"
+                          enterTo="transform translate-y-0 opacity-100"
+                          leave="transition duration-75 ease-out"
+                          leaveFrom="transform translate-y-0 opacity-100"
+                          leaveTo="transform -translate-y-4 opacity-0"
+                        >
+                          <Disclosure.Panel
+                            static
+                            as="dd"
+                            className="mt-2 py-3 px-6 bg-blue-06"
+                          >
+                            <div className="">{faq.c}</div>
+                          </Disclosure.Panel>
+                        </Transition>
+                      </>
+                    )}
+                  </Disclosure>
+                ))}
+              </dl>
+            </div>
           </div>
         </article>
 
-        <article className="text-center bg-gray-bg mt-12">
+        <article className="text-center bg-blue-06 mt-12">
           <div className="container py-12">
-            <h1 className="h1 lg:mb-8">Community Partner</h1>
+            <h2 className="h2 lg:mb-8">Community Partner</h2>
             <p>
               We are partnering with The Graph as community partners for this
               event.
@@ -205,11 +311,11 @@ const Home: NextPage = () => {
         </article>
 
         <article className="container mt-12 py-12">
-          <h1 className="h1">Agenda</h1>
+          <h2 className="h2">Agenda</h2>
           <p className={`${lightTextClass} mt-12`}>
             Agenda will be very similar for both days
           </p>
-          <div className="rounded-2xl bg-gray-bg px-6 py-2 mt-6">
+          <div className="bg-blue-04 px-6 py-2 mt-6">
             {[
               { t: 'Council Ceremony Intro', h: '10:00 - 10:30 AM', d: '....' },
               {
@@ -230,12 +336,15 @@ const Home: NextPage = () => {
             ].map((item, index) => (
               <>
                 {index > 0 && <hr className="border-t border-gray-hr" />}
-                <div className="py-8 grid grid-cols-10 gap-8" key={index}>
+                <div
+                  className="py-8 grid grid-cols-2 lg:grid-cols-10 gap-8"
+                  key={index}
+                >
                   <div className="col-span-2 text-3xl font-bold whitespace-pre-wrap">
                     {item.t}
                   </div>
                   <div className="col-span-8">
-                    <div className="mb-2 text-2xl font-bold">{item.h}</div>
+                    <h4 className="mb-2 h4">{item.h}</h4>
                     <div>{item.d}</div>
                   </div>
                 </div>
@@ -254,19 +363,19 @@ const Home: NextPage = () => {
         </article>
 
         <article className="container mb-36 py-12">
-          <h1 className="h1 text-center mb-22">Time & Place</h1>
-          <div className="grid grid-cols-10 gap-9">
-            <div className="col-span-4">
+          <h2 className="h2 mb-22">Time & Place</h2>
+          <div className="grid grid-cols-4 lg:grid-cols-10 lg:gap-9">
+            <div className="col-span-4 mb-8 lg:mb-0">
               <div className="">
                 <Image
                   src={Map}
                   objectFit="contain"
                   alt="Map"
-                  className="rounded-3xl"
+                  className=""
                 ></Image>
               </div>
             </div>
-            <div className="col-span-6">
+            <div className="col-span-6 lg:order-first">
               <div className="flex">
                 <div className="mr-5 flex-shrink-0">
                   <Image src={Clock} alt=""></Image>
@@ -293,7 +402,7 @@ const Home: NextPage = () => {
                   <div className="mt-6">
                     <a
                       href="https://maps.google.com"
-                      className="inline-block bg-gray-link cursor-pointer hover:bg-gray-linkHover uppercase px-5 py-3 rounded-full"
+                      className="inline-block bg-blue-02 cursor-pointer hover:opacity-95 text-blue-05 uppercase px-9 py-3 font-display"
                     >
                       Directions
                     </a>

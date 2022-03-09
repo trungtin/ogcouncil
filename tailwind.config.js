@@ -9,12 +9,16 @@ module.exports = {
       white: '#fff',
       black: '#000',
       gray: {
-        lightText: '#858585',
-        subText: '#8C8C8C',
         bg: '#F4F4F4',
         hr: '#E0E0E0',
         link: '#D9D9D9',
         linkHover: '#CFCFCF',
+      },
+      blue: {
+        '02': '#99F8FF',
+        '04': '#0F36FB',
+        '05': '#000843',
+        '06': '#000630',
       },
     },
     container: {
@@ -29,11 +33,12 @@ module.exports = {
     },
     extend: {
       fontFamily: {
+        display: `"Oswald", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`,
         body: `"Comfortaa", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`,
       },
       fontSize: {
         base: ['16px', '30px'],
-        xl: ['20px', '37px']
+        xl: ['20px', '37px'],
       },
       spacing: {
         22: '5.5rem',
