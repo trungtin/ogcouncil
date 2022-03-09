@@ -6,7 +6,7 @@ import cx from 'classnames'
 import { Disclosure, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/outline'
 
-import Banner from '../images/banner.jpg'
+import Banner from '../images/banner.jpeg'
 
 import Map from '../images/map.png'
 import About from '../images/about.jpeg'
@@ -33,7 +33,9 @@ const Home: NextPage = () => {
 
       <main className="min-h-screen flex-1 flex flex-col">
         <article className="w-full relative">
-          <Image src={Banner} alt="" layout="responsive"></Image>
+          <a href="">
+            <Image src={Banner} alt="" layout="responsive"></Image>
+          </a>
         </article>
         <article className="container pt-12 lg:pt-32">
           <h2 className="h2 px-4 lg:px-24 mb-6 lg:mb-14">About</h2>
@@ -362,50 +364,52 @@ const Home: NextPage = () => {
           </p>
         </article>
 
-        <article className="container mb-36 py-12">
-          <h2 className="h2 mb-22">Time & Place</h2>
-          <div className="grid grid-cols-4 lg:grid-cols-10 lg:gap-9">
-            <div className="col-span-4 mb-8 lg:mb-0">
-              <div className="">
-                <Image
-                  src={Map}
-                  objectFit="contain"
-                  alt="Map"
-                  className=""
-                ></Image>
-              </div>
-            </div>
-            <div className="col-span-6 lg:order-first">
-              <div className="flex">
-                <div className="mr-5 flex-shrink-0">
-                  <Image src={Clock} alt=""></Image>
-                </div>
-                <div>
-                  <h3 className="h3 mb-2">Time</h3>
-                  <p>23 & 24 April (Saturday & Sunday)</p>
+        <article className="bg-blue-06 pb-36 pt-12">
+          <div className="container">
+            <h2 className="h2 mb-22">Time & Place</h2>
+            <div className="grid grid-cols-4 lg:grid-cols-10 lg:gap-9">
+              <div className="col-span-4 mb-8 lg:mb-0">
+                <div className="">
+                  <Image
+                    src={Map}
+                    objectFit="contain"
+                    alt="Map"
+                    className=""
+                  ></Image>
                 </div>
               </div>
-              <div className="mt-9 flex">
-                <div className="mr-5 flex-shrink-0">
-                  <Image src={Pin} alt=""></Image>
+              <div className="col-span-6 lg:order-first">
+                <div className="flex">
+                  <div className="mr-5 flex-shrink-0">
+                    <Image src={Clock} alt=""></Image>
+                  </div>
+                  <div>
+                    <h3 className="h3 mb-2">Time</h3>
+                    <p>23 & 24 April (Saturday & Sunday)</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="h3 mb-2">Place</h3>
-                  <p>
-                    23 & 24 April (SaPakhuis de Zwijger is a famous old
-                    warehouse and located at ‘IJ’, the main river crossing
-                    Amsterdam. Public transport is in front of the venue and
-                    it’s a 26 minutes walk and 7 minutes bike ride away from
-                    Devconnect’s co-working space in Beurs van Berlage.turday &
-                    Sunday)
-                  </p>
-                  <div className="mt-6">
-                    <a
-                      href="https://maps.google.com"
-                      className="inline-block bg-blue-02 cursor-pointer hover:opacity-95 text-blue-05 uppercase px-9 py-3 font-display"
-                    >
-                      Directions
-                    </a>
+                <div className="mt-9 flex">
+                  <div className="mr-5 flex-shrink-0">
+                    <Image src={Pin} alt=""></Image>
+                  </div>
+                  <div>
+                    <h3 className="h3 mb-2">Place</h3>
+                    <p>
+                      23 & 24 April (SaPakhuis de Zwijger is a famous old
+                      warehouse and located at ‘IJ’, the main river crossing
+                      Amsterdam. Public transport is in front of the venue and
+                      it’s a 26 minutes walk and 7 minutes bike ride away from
+                      Devconnect’s co-working space in Beurs van Berlage.turday
+                      & Sunday)
+                    </p>
+                    <div className="mt-6">
+                      <a
+                        href="https://goo.gl/maps/pnHc6BQZ24k62ihb6"
+                        className="inline-block bg-blue-02 cursor-pointer hover:opacity-95 text-blue-05 uppercase px-9 py-3 font-display"
+                      >
+                        Directions
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
