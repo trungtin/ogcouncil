@@ -7,6 +7,7 @@ import { Disclosure, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/outline'
 
 import Banner from '../images/banner.jpeg'
+import BannerMobile from '../images/banner-m.jpeg'
 
 import Map from '../images/map.png'
 import About from '../images/about.jpeg'
@@ -15,7 +16,6 @@ import Clock from '../images/icons/Clock.svg'
 import Pin from '../images/icons/Pin.svg'
 import Micro from '../images/icons/Micro.svg'
 
-const linkClass = ''
 const lightTextClass = 'text-base font-light'
 
 const Home: NextPage = () => {
@@ -34,7 +34,12 @@ const Home: NextPage = () => {
       <main className="min-h-screen flex-1 flex flex-col">
         <article className="w-full relative">
           <a href="">
-            <Image src={Banner} alt="" layout="responsive"></Image>
+            <div className="hidden lg:block">
+              <Image src={Banner} alt="" layout="responsive"></Image>
+            </div>
+            <div className="lg:hidden">
+              <Image src={BannerMobile} alt="" layout="responsive"></Image>
+            </div>
           </a>
         </article>
         <article className="container pt-12 lg:pt-32">
@@ -198,7 +203,7 @@ const Home: NextPage = () => {
               <dl className="mt-6 space-y-4">
                 {[
                   {
-                    n: 'Wave 1 - Date TBA',
+                    n: 'Wave 1 - Invite only claimable until March 17',
                     c: (
                       <>
                         <p>Tickets available: 250</p>
@@ -228,7 +233,7 @@ const Home: NextPage = () => {
                     ),
                   },
                   {
-                    n: 'Wave 2 - Date TBA',
+                    n: 'Wave 2 - March 18 claimable until March 25',
                     c: (
                       <>
                         <p>Tickets available: 200</p>
@@ -241,7 +246,7 @@ const Home: NextPage = () => {
                     ),
                   },
                   {
-                    n: 'Wave 3 - Date TBA',
+                    n: 'Wave 3 - April 1 till sold out',
                     c: (
                       <>
                         <p>Tickets available: 150</p>
@@ -405,7 +410,7 @@ const Home: NextPage = () => {
                     <div className="mt-6">
                       <a
                         href="https://goo.gl/maps/pnHc6BQZ24k62ihb6"
-                        className="inline-block bg-blue-02 cursor-pointer hover:opacity-95 text-blue-05 uppercase px-9 py-3 font-display"
+                        className="inline-block bg-pink-04 cursor-pointer hover:opacity-95 text-blue-05 uppercase px-9 py-3 font-display"
                       >
                         Directions
                       </a>

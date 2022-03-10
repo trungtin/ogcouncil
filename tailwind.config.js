@@ -20,6 +20,9 @@ module.exports = {
         '05': '#000843',
         '06': '#000630',
       },
+      pink: {
+        '04': '#F36BFE',
+      },
     },
     container: {
       center: true,
