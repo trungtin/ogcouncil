@@ -33,7 +33,7 @@ const Home: NextPage = () => {
 
       <main className="min-h-screen flex-1 flex flex-col">
         <article className="w-full relative">
-          <a href="">
+          <a href="https://ticketh.xyz/magicians/gathering/">
             <div className="hidden lg:block">
               <Image src={Banner} alt="" layout="responsive"></Image>
             </div>
