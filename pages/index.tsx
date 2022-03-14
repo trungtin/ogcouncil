@@ -209,7 +209,7 @@ const Home: NextPage = () => {
                         <p>Tickets available: 250</p>
                         <p>Ticket type: FEM OG</p>
                         <p>Ticket distribution: via email</p>
-                        <p>Groups elighble for first wave tickets:</p>
+                        <p>Groups eligible for first wave tickets:</p>
                         <ul className="list-disc list-inside pl-4">
                           <li>
                             Ethereum Magicians OGs - people that are actively
