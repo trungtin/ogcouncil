@@ -363,10 +363,6 @@ const Home: NextPage = () => {
             wider audience Optionally groups can regroup again and discuss &
             work together again
           </p>
-          <p className={`${lightTextClass} mt-4`}>
-            The venue has no closing time so we can use it as long as we need -
-            if session leaders would like to work on propoosal after 6pm
-          </p>
         </article>
 
         <article className="bg-blue-06 pb-36 pt-12">
