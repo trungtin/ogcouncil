@@ -1,3 +1,4 @@
+import { createElement } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -25,6 +26,33 @@ const Home: NextPage = () => {
       <p className={`${lightTextClass} mt-2`}>{person.r}</p>
     </div>
   )
+  const renderAgendaHeader = (item: any, iy: number) => (
+    <th
+      className="border-black border-2 lg:whitespace-pre-wrap py-2 pl-3 pr-1"
+      key={iy}
+    >
+      {item.t}
+    </th>
+  )
+  const renderAgendaBody = (item: any, ix: number) => {
+    return (
+      <>
+        <tr className={item.cl ?? `bg-blue-04`} key={ix}>
+          {item.r.map((item: any, iy: number) => (
+            <td
+              className={`border-black border-2 py-2 pl-2 pr-1 whitespace-pre-wrap align-top ${
+                iy === 0 && 'whitespace-nowrap'
+              }`}
+              colSpan={item.cols ?? 1}
+              key={iy}
+            >
+              {item.t}
+            </td>
+          ))}
+        </tr>
+      </>
+    )
+  }
   return (
     <div className="">
       <Head>
@@ -318,46 +346,414 @@ const Home: NextPage = () => {
         </article>
 
         <article className="container mt-12 py-12">
-          <h2 className="h2">Agenda</h2>
-          <p className={`${lightTextClass} mt-12`}>
-            Agenda will be very similar for both days
-          </p>
-          <div className="bg-blue-04 px-6 py-2 mt-6">
-            {[
-              { t: 'Council Ceremony Intro', h: '10:00 - 10:30 AM', d: '....' },
-              {
-                t: 'Council\nKick off',
-                h: '10:30 - 11:30 AM',
-                d: 'Introduction about Ethereum Magicians, intro about Council, run through agenda of the day',
-              },
-              {
-                t: 'Topic proposal/ voting',
-                h: '12:00 - 03:00 PM',
-                d: 'Group discussions',
-              },
-              {
-                t: 'Council Reunion',
-                h: '04:00 - 05:00 PM',
-                d: 'Groups will divide into smaller groups with team leader and discuss topics, work on EIP and/or propose solution, lunch break as needed',
-              },
-            ].map((item, index) => (
-              <>
-                {index > 0 && <hr className="border-t border-gray-hr" />}
-                <div
-                  className="py-8 grid grid-cols-2 lg:grid-cols-10 gap-8"
-                  key={index}
-                >
-                  <div className="col-span-2 text-3xl font-bold whitespace-pre-wrap">
-                    {item.t}
-                  </div>
-                  <div className="col-span-8">
-                    <h4 className="mb-2 h4">{item.h}</h4>
-                    <div>{item.d}</div>
-                  </div>
-                </div>
-              </>
-            ))}
+          <h2 className="h2 text-blue-02">AGENDA of SARTUDAY</h2>
+          <div className="overflow-x-scroll">
+            <table className="mt-6 ">
+              <thead>
+                <tr className="bg-blue-07 text-left">
+                  {[
+                    {
+                      t: 'Room - Capacity',
+                    },
+                    {
+                      t: 'Grote Zaal -\n244',
+                    },
+                    {
+                      t: 'Ljzaal -\n50',
+                    },
+                    {
+                      t: 'Studio -\n50',
+                    },
+                    {
+                      t: 'Meeting room\n- 50',
+                    },
+                    {
+                      t: 'Floyer Grote\nZaal - 20',
+                    },
+                  ].map(renderAgendaHeader)}
+                </tr>
+              </thead>
+              <tbody className="text-blue-02">
+                {[
+                  {
+                    r: [
+                      {
+                        t: '09:00 - 10:00 AM',
+                      },
+                      {
+                        t: 'Registration',
+                        cols: 5,
+                      },
+                    ],
+                  },
+                  {
+                    r: [
+                      {
+                        t: '10:00 - 10:30 AM',
+                      },
+                      {
+                        t: 'Ceremony',
+                        cols: 5,
+                      },
+                    ],
+                  },
+                  {
+                    r: [
+                      {
+                        t: '10:30 - 11:00 AM',
+                      },
+                      {
+                        t: 'Topic voting',
+                        cols: 5,
+                      },
+                    ],
+                  },
+                  {
+                    r: [
+                      {
+                        t: '11:00 - 12:00 PM',
+                      },
+                      {
+                        t: 'EIP-4626',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                    ],
+                  },
+                  {
+                    cl: 'bg-blue-08',
+                    r: [
+                      {
+                        t: '12:00 - 1:00 PM',
+                      },
+                      {
+                        t: 'Lunch break',
+                        cols: 5,
+                      },
+                    ],
+                  },
+                  {
+                    r: [
+                      {
+                        t: '01:00 - 02:00 PM',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                      {
+                        t: 'NFT Standards',
+                      },
+                      {
+                        t: 'EIP-4444',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                    ],
+                  },
+                  {
+                    r: [
+                      {
+                        t: '02:00 - 03:00 PM',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                      {
+                        t: 'NFT Standards',
+                      },
+                      {
+                        t: 'EIP-4444',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                    ],
+                  },
+                  {
+                    cl: 'bg-blue-08',
+                    r: [
+                      {
+                        t: '03:30 - 04:00 PM',
+                      },
+                      {
+                        t: 'Coffee break',
+                        cols: 5,
+                      },
+                    ],
+                  },
+                  {
+                    r: [
+                      {
+                        t: '04:00 - 05:00 PM',
+                      },
+                      {
+                        t: 'Council reunion',
+                        cols: 5,
+                      },
+                    ],
+                  },
+                  {
+                    r: [
+                      {
+                        t: '05:00 - 06:00 PM',
+                      },
+                      {
+                        t: 'Networking',
+                      },
+                      {
+                        t: 'Working Group',
+                      },
+                      {
+                        t: 'Working Group',
+                      },
+                      {
+                        t: 'Working Group',
+                      },
+                      {
+                        t: 'Working Group',
+                      },
+                    ],
+                  },
+
+                  {
+                    cl: 'bg-blue-08',
+                    r: [
+                      {
+                        t: '06:00 - 06:30 PM',
+                      },
+                      {
+                        t: 'Tear down',
+                        cols: 5,
+                      },
+                    ],
+                  },
+                ].map(renderAgendaBody)}
+              </tbody>
+            </table>
           </div>
+          <p className="mt-6 text-blue-02">*OSFT: Open slot for topic</p>
+
+          <h2 className="h2 text-blue-02 mt-12">AGENDA of SUNDAY</h2>
+          <div className="overflow-x-scroll">
+            <table className="mt-6 ">
+              <thead>
+                <tr className="bg-blue-07 text-left">
+                  {[
+                    {
+                      t: 'Room - Capacity',
+                    },
+                    {
+                      t: 'Grote Zaal -\n244',
+                    },
+                    {
+                      t: 'Ljzaal -\n50',
+                    },
+                    {
+                      t: 'Studio -\n50',
+                    },
+                    {
+                      t: 'Meeting room\n- 50',
+                    },
+                    {
+                      t: 'Floyer Grote\nZaal - 20',
+                    },
+                  ].map(renderAgendaHeader)}
+                </tr>
+              </thead>
+              <tbody className="text-blue-02">
+                {[
+                  {
+                    r: [
+                      {
+                        t: '09:00 - 10:00 AM',
+                      },
+                      {
+                        t: 'Registration',
+                        cols: 5,
+                      },
+                    ],
+                  },
+                  {
+                    r: [
+                      {
+                        t: '10:00 - 10:30 AM',
+                      },
+                      {
+                        t: 'Ceremony',
+                        cols: 5,
+                      },
+                    ],
+                  },
+                  {
+                    r: [
+                      {
+                        t: '10:30 - 11:00 AM',
+                      },
+                      {
+                        t: 'Governance forum',
+                        cols: 5,
+                      },
+                    ],
+                  },
+                  {
+                    r: [
+                      {
+                        t: '11:00 - 12:00 PM',
+                      },
+                      {
+                        t: '',
+                        cols: 5,
+                      },
+                    ],
+                  },
+                  {
+                    cl: 'bg-blue-08',
+                    r: [
+                      {
+                        t: '12:00 - 1:00 PM',
+                      },
+                      {
+                        t: 'Lunch break',
+                        cols: 5,
+                      },
+                    ],
+                  },
+                  {
+                    r: [
+                      {
+                        t: '01:00 - 02:00 PM',
+                      },
+                      {
+                        t: 'Client UX',
+                      },
+                      {
+                        t: 'Merge testing',
+                      },
+                      {
+                        t: 'Portal Network',
+                      },
+                      {
+                        t: 'EIP-4488',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                    ],
+                  },
+                  {
+                    r: [
+                      {
+                        t: '02:00 - 03:00 PM',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                    ],
+                  },
+                  {
+                    cl: 'bg-blue-08',
+                    r: [
+                      {
+                        t: '03:30 - 04:00 PM',
+                      },
+                      {
+                        t: 'Coffee break',
+                        cols: 5,
+                      },
+                    ],
+                  },
+                  {
+                    r: [
+                      {
+                        t: '04:00 - 05:00 PM',
+                      },
+                      {
+                        t: 'Council reunion\n*OSFT',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                      {
+                        t: '*OSFT',
+                      },
+                    ],
+                  },
+                  {
+                    r: [
+                      {
+                        t: '05:00 - 06:00 PM',
+                      },
+                      {
+                        t: 'Networking',
+                      },
+                      {
+                        t: 'Working Group',
+                      },
+                      {
+                        t: 'Working Group',
+                      },
+                      {
+                        t: 'Working Group',
+                      },
+                      {
+                        t: 'Working Group',
+                      },
+                    ],
+                  },
+
+                  {
+                    cl: 'bg-blue-08',
+                    r: [
+                      {
+                        t: '06:00 - 06:30 PM',
+                      },
+                      {
+                        t: 'Tear down',
+                        cols: 5,
+                      },
+                    ],
+                  },
+                ].map(renderAgendaBody)}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-6 text-blue-02">*OSFT: Open slot for topic</p>
+
           <p className="mt-6">
             Discuss problems that has been discussed in the smaller groups with
             wider audience Optionally groups can regroup again and discuss &
