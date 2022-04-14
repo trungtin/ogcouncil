@@ -61,14 +61,26 @@ const Home: NextPage = () => {
 
       <main className="min-h-screen flex-1 flex flex-col">
         <article className="w-full relative">
-          <a href="https://ticketh.xyz/magicians/gathering/">
-            <div className="hidden lg:block">
-              <Image src={Banner} alt="" layout="responsive"></Image>
-            </div>
-            <div className="lg:hidden">
-              <Image src={BannerMobile} alt="" layout="responsive"></Image>
-            </div>
-          </a>
+          <div className="hidden lg:block">
+            <Image src={Banner} alt="" layout="responsive"></Image>
+          </div>
+          <div className="lg:hidden">
+            <Image src={BannerMobile} alt="" layout="responsive"></Image>
+          </div>
+          <div className="absolute bottom-20 left-4 lg:bottom-32 lg:left-56 grid grid-cols-1 gap-8 text-center">
+            <a
+              href="https://ticketh.xyz/magicians/gathering/"
+              className="bg-pink-04 cursor-pointer hover:opacity-95 text-blue-05 font-bold text-2xl px-6 py-4 lg:px-9 lg:py-6 font-display"
+            >
+              GET TICKET NOW
+            </a>
+            <a
+              href="https://forms.gle/pGoW58tosjuUu7Yk8"
+              className="bg-pink-04 cursor-pointer hover:opacity-95 text-blue-05 font-bold text-2xl px-6 py-4 lg:px-9 lg:py-6 font-display"
+            >
+              APPLY AS VOLUNTEER
+            </a>
+          </div>
         </article>
         <article className="container pt-12 lg:pt-32">
           <h2 className="h2 px-4 lg:px-24 mb-6 lg:mb-14">About</h2>
